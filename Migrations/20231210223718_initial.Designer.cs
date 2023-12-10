@@ -12,7 +12,7 @@ using Projektuppgift_Databas_Emil.Data;
 namespace Projektuppgift_Databas_Emil.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20231210214609_initial")]
+    [Migration("20231210223718_initial")]
     partial class initial
     {
         /// <inheritdoc />

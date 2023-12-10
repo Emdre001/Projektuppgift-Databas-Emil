@@ -17,16 +17,13 @@ namespace Projektuppgift_Databas_Emil.Data
                 var rnd = new Random();
 
                 Author author1 = new Author();
-                author1.FirstName = "Emil";
-                author1.LastName = "Dressel";
+                author1.Name = "Emil Dressel";
 
                 Author author2 = new Author();
-                author2.FirstName = "Nils";
-                author2.LastName = "Axling";
+                author2.Name = "Nils Axling";
 
                 Author author3 = new Author();
-                author3.FirstName = "Robin";
-                author3.LastName = "Rachoo";
+                author3.Name = "Robin Rachoo";
 
                 Customer customer1 = new Customer
                 {
@@ -95,19 +92,19 @@ namespace Projektuppgift_Databas_Emil.Data
             }
 
         }
-        public void AddBook(string bookTitle, DateTime? releaseDate, int rating, List<string> authorFirstNames)
+        public void AddBook(string bookTitle, DateTime? releaseDate, int rating, List<string> authorNames)
         {
             using (var context = new Context())
             {
-                var authors = authorFirstNames.Select(authorFirstName =>
+                var authors = authorNames.Select(authorName =>
                 {
-                    var existingAuthor = context.Authors.FirstOrDefault(a => a.FirstName == authorFirstName);
-                    return existingAuthor ?? new Author { FirstName = authorFirstName };
+                    var existingAuthor = context.Authors.FirstOrDefault(a => a.Name == authorName);
+                    return existingAuthor ?? new Author { Name = authorName };
                 }).ToList();
 
                 var newBook = new Book
                 {
-                    title= bookTitle,
+                    title = bookTitle,
                     ReleaseDate = releaseDate,
                     Rating = rating,
                     Author = authors
@@ -116,18 +113,18 @@ namespace Projektuppgift_Databas_Emil.Data
                 {
                     author.Books.Add(newBook);
                 }
+
                 context.Books.Add(newBook);
                 context.SaveChanges();
             }
         }
-        public void AddAuthor(string firstname, string lastname)
+        public void AddAuthor(string name)
         {
             using (var context = new Context())
             {
                 var newAuthor = new Author
                 {
-                    FirstName = firstname,
-                    LastName = lastname
+                    Name = name,
 
                 };
                 context.Authors.Add(newAuthor);
