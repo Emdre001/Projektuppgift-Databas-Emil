@@ -12,7 +12,7 @@ using Projektuppgift_Databas_Emil.Data;
 namespace Projektuppgift_Databas_Emil.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20231210223718_initial")]
+    [Migration("20231210225310_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -48,11 +48,7 @@ namespace Projektuppgift_Databas_Emil.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorID"));
 
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
+                    b.Property<string>("AuthorName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

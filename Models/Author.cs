@@ -9,7 +9,7 @@ namespace Projektuppgift_Databas_Emil.Models
     internal class Author
     {
         public int AuthorID { get; set; }
-        public string Fullname { get; set; }
+        public string AuthorName { get; set; }
         public ICollection<Book> Books { get; set; } = new List<Book>();
 
         public Author()
