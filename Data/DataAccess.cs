@@ -17,13 +17,13 @@ namespace Projektuppgift_Databas_Emil.Data
                 var rnd = new Random();
 
                 Author author1 = new Author();
-                author1.Name = "Emil Dressel";
+                author1.Fullname = "Emil Dressel";
 
                 Author author2 = new Author();
-                author2.Name = "Nils Axling";
+                author2.Fullname = "Nils Axling";
 
                 Author author3 = new Author();
-                author3.Name = "Robin Rachoo";
+                author3.Fullname = "Robin Rachoo";
 
                 Customer customer1 = new Customer
                 {
@@ -98,8 +98,8 @@ namespace Projektuppgift_Databas_Emil.Data
             {
                 var authors = authorNames.Select(authorName =>
                 {
-                    var existingAuthor = context.Authors.FirstOrDefault(a => a.Name == authorName);
-                    return existingAuthor ?? new Author { Name = authorName };
+                    var existingAuthor = context.Authors.FirstOrDefault(a => a.Fullname == authorName);
+                    return existingAuthor ?? new Author { Fullname = authorName };
                 }).ToList();
 
                 var newBook = new Book
@@ -124,7 +124,7 @@ namespace Projektuppgift_Databas_Emil.Data
             {
                 var newAuthor = new Author
                 {
-                    Name = name,
+                    Fullname = name,
 
                 };
                 context.Authors.Add(newAuthor);
