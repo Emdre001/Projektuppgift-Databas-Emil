@@ -18,6 +18,7 @@ namespace Projektuppgift_Databas_Emil.Models
         public DateTime? ReleaseDate { get; set; }
         public int Rating { get; set; }
         public bool IsRented { get; set; }
+
         [ForeignKey("LoanDetailID")]
         public LoanDetail? LoanDetail { get; set; }
 

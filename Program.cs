@@ -6,6 +6,7 @@ namespace Projektuppgift_Databas_Emil
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the Library");
             DataAccess dataAccess = new DataAccess();
             dataAccess.Seed();
 
